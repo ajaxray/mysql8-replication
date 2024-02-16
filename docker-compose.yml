@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  # MySQL Master Database
+  master_db:
+    container_name: mysql8_master
+    image: mysql:8.0
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sandbox
+      # MYSQL_USER: sandbox_user
+      # MYSQL_PASSWORD: 123123
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+    ports:
+      - '3307:3306'
+    volumes:
+      - './docker/master/data:/var/lib/mysql'
+      - './docker/master/log:/var/log/mysql'
+      - './docker/master/my.cnf:/etc/mysql/conf.d/my.cnf'
+      - './docker/sql:/docker-entrypoint-initdb.d'
+
+  slave_db:
+    # MySQL Slave Database
+    container_name: mysql8_slave
+    image: mysql:8.0
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sandbox
+      # MYSQL_USER: sandbox_user
+      # MYSQL_PASSWORD: 123123
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+    ports:
+      - '3308:3306'
+    volumes:
+      - './docker/slave/data:/var/lib/mysql'
+      - './docker/slave/log:/var/log/mysql'
+      - './docker/slave/my.cnf:/etc/mysql/conf.d/my.cnf'
+      - './docker/sql:/docker-entrypoint-initdb.d'

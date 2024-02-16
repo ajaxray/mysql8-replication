@@ -1,0 +1,7 @@
+master/data/*
+master/log/*
+
+slave/data/*
+slave/log/*
+
+!/**/.gitkeep
