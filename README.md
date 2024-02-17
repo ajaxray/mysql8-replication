@@ -9,9 +9,18 @@ Following the steps listed below, you can configure and experience replication f
     <img src="./screenshot.png" alt="MySQL GTID Master-Slave Replication" width="800px">
 </a>
 
+---
+
+> ⚠️ **Assumptions**:
+> - Assuming you have both, Docker Engine and Docker Compose installed and configured.
+> - Assuming you have basic understanding of docker and MySQL. 
+
 ## Step 1: Start the containers
 
+Clone the repo, enter into directory, and start the containers.
 ```shell
+git clone git@github.com:ajaxray/mysql8-replication.git
+cd mysql8-replication
 docker-compose up --build -d
 ```
 
@@ -56,7 +65,7 @@ USE sandbox;
 INSERT INTO test_table VALUES(1, 'name', 'ajaxray');
 SELECT * FROM test_table;
 ```
-And then, try selecting from slave_db as well. (Don't insert from slave!)
+And then, try selecting the record from the slave_db. (Don't insert from slave!)
 
 If you don't see the changes are replicating as expected, run the following SQL command in slave_db.
 ```sql
