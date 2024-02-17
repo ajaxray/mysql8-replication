@@ -11,9 +11,9 @@ Following the steps listed below, you can configure and experience replication f
 
 ---
 
-> ⚠️ **Assumptions**:
-> - Assuming you have both, Docker Engine and Docker Compose installed and configured.
-> - Assuming you have basic understanding of docker and MySQL. 
+> ⚠️ **Assumptions**:  
+> - Assuming you have both Docker Engine and Docker Compose installed and configured. 
+> - Assuming you have a basic understanding of Docker and MySQL. 
 
 ## Step 1: Start the containers
 
