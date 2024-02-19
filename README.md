@@ -87,5 +87,16 @@ Then execute the `cleanup.sh` to stop the containers and remove all data and log
 chmod +x ./cleanup.sh && ./cleanup.sh
 ```
 
+This cleanup script will remove all the data and log files along with the containers. 
+If you want to keep current data and just to stop the containers, you can just use
+```shell
+docker-compose down
+```
+
+## Contribution guide
+
+Feel free to submit an issue if you face any error. 
+Suggestions/PRs are most welcome! 🤗
+
 ---
 > "This is the Book about which there is no doubt, a guidance for those conscious of Allah" - [Al-Quran](http://quran.com)
